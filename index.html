@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOSS Water</title>
+<style>
+/* Reset and Base Styles */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+background-color: #ffffff;
+color: #333;
+overflow-x: hidden;
+}
+
+/* Header Section */
+.hero {
+background-color: #e6f4f9;
+height: 100vh;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: relative;
+overflow: hidden;
+}
+
+.hero-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+z-index: 2;
+text-align: center;
+padding: 0 20px;
+}
+
+.hero-background {
+position: absolute;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: 1;
+}
+
+.voss-logo {
+width: 150px;
+margin-bottom: 30px;
+}
+
+.token-address {
+font-size: 22px;
+color: #ffffff;
+margin-top: 20px;
+background-color: rgba(0, 0, 0, 0.5);
+padding: 10px 20px;
+border-radius: 5px;
+max-width: 100%;
+overflow-wrap: break-word;
+}
+
+.buy-button {
+display: inline-block;
+background-color: #ffffff;
+color: #0072ce;
+padding: 10px 25px;
+border-radius: 5px;
+font-weight: bold;
+text-decoration: none;
+margin-top: 20px;
+transition: all 0.3s ease;
+font-size: 18px;
+}
+
+.buy-button:hover {
+background-color: #f1f1f1;
+transform: scale(1.05);
+}
+
+/* About Section */
+.about {
+padding: 80px 0;
+text-align: center;
+background-color: #ffffff;
+}
+
+.about-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.about-logo {
+width: 120px;
+margin-bottom: 40px;
+}
+
+.about-text {
+font-size: 20px;
+line-height: 1.6;
+max-width: 800px;
+margin: 0 auto 40px;
+color: #333;
+}
+
+.product-image {
+width: 100%;
+max-width: 800px;
+margin: 0 auto;
+display: block;
+border-radius: 8px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Video Section */
+.video-section {
+padding: 80px 0;
+background-color: #f7f7f7;
+text-align: center;
+}
+
+.video-container {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.video-placeholder {
+width: 100%;
+height: 0;
+padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+background-color: #e6f4f9;
+position: relative;
+border-radius: 8px;
+overflow: hidden;
+}
+
+/* Social Media Section */
+.social-media {
+padding: 80px 0;
+text-align: center;
+background-color: #ffffff;
+}
+
+.social-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.social-heading {
+font-size: 40px;
+font-weight: bold;
+margin-bottom: 50px;
+color: #0072ce;
+}
+
+.social-icons {
+display: flex;
+justify-content: center;
+gap: 50px;
+margin-bottom: 50px;
+}
+
+.social-icon {
+font-size: 80px;
+color: #0072ce;
+text-decoration: none;
+transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+transform: scale(1.1);
+}
+
+/* Memes/Gallery Section */
+.gallery {
+padding: 80px 0;
+background-color: #0072ce;
+text-align: center;
+}
+
+.gallery-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.gallery-heading {
+font-size: 40px;
+font-weight: bold;
+margin-bottom: 50px;
+color: #ffffff;
+}
+
+.gallery-grid {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+}
+
+.gallery-item {
+flex: 0 0 auto;
+max-width: 100%;
+margin-bottom: 20px;
+}
+
+.gallery-image {
+max-width: 100%;
+height: auto;
+display: block;
+transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+transform: scale(1.02);
+}
+
+/* Footer */
+.footer {
+padding: 40px 0;
+background-color: #ffffff;
+text-align: center;
+}
+
+.footer-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.footer-logo {
+width: 80px;
+margin-bottom: 20px;
+}
+
+.disclaimer {
+font-size: 14px;
+line-height: 1.6;
+max-width: 800px;
+margin: 0 auto;
+color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.hero-content h1 {
+font-size: 36px;
+}
+
+.about-text {
+font-size: 18px;
+}
+
+.social-heading, .gallery-heading {
+font-size: 32px;
+}
+
+.social-icons {
+gap: 30px;
+}
+
+.social-icon {
+font-size: 60px;
+}
+
+.gallery-grid {
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+}
+
+@media (max-width: 480px) {
+.hero-content h1 {
+font-size: 28px;
+}
+
+.token-address {
+font-size: 16px;
+}
+
+.about-text {
+font-size: 16px;
+}
+
+.social-heading, .gallery-heading {
+font-size: 28px;
+}
+
+.social-icons {
+gap: 20px;
+}
+
+.social-icon {
+font-size: 50px;
+}
+
+.gallery-grid {
+grid-template-columns: 1fr;
+}
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<!-- Hero Section -->
+<section class="hero">
+<img src="images/banner.jpeg" alt="Voss Water Background" class="hero-background">
+<div class="hero-content">
+<img src="images/logo.png" alt="Voss Logo" class="voss-logo">
+<div class="token-address">VossCA</div>
+<a href="#" class="buy-button">BUY NOW</a>
+</div>
+</section>
+
+<!-- About Section -->
+<section class="about">
+<div class="about-container">
+<img src="images/logo.png" alt="Voss Logo" class="about-logo">
+<p class="about-text">
+Sourced from the pristine aquifers of Southern Norway, VOSS Water represents the essence of purity. 
+For over two decades, our artesian water has been synonymous with luxury and elegance. 
+Our iconic cylindrical bottle design has become a statement of refined taste around the world.
+</p>
+</div>
+</section>
+
+<!-- Social Media Section -->
+<section class="social-media">
+<div class="social-container">
+<h2 class="social-heading">$VOSS socials</h2>
+<div class="social-icons">
+<a href="#" class="social-icon">
+    <i class="fab fa-twitter"></i>
+</a>
+<a href="#" class="social-icon">
+    <i class="fab fa-telegram"></i>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Gallery/Memes Section -->
+<section class="gallery">
+<div class="gallery-container">
+<h2 class="gallery-heading">MEMES</h2>
+<div class="gallery-grid">
+<div class="gallery-item">
+    <img src="images/image1.jpeg" alt="Voss Meme 1" class="gallery-image">
+</div>
+<div class="gallery-item">
+    <img src="images/image2.jpeg" alt="Voss Meme 2" class="gallery-image">
+</div>
+<div class="gallery-item">
+    <img src="images/image3.jpeg" alt="Voss Meme 3" class="gallery-image">
+</div>
+<div class="gallery-item">
+    <img src="images/image4.jpeg" alt="Voss Meme 4" class="gallery-image">
+</div>
+<div class="gallery-item">
+    <img src="images/image5.jpeg" alt="Voss Meme 5" class="gallery-image">
+</div>
+<div class="gallery-item">
+    <img src="images/image6.jpeg" alt="Voss Meme 6" class="gallery-image">
+</div>
+<div class="gallery-item">
+    <img src="images/image7.jpeg" alt="Voss Meme 7" class="gallery-image">
+</div>
+<div class="gallery-item">
+    <img src="images/image9.jpeg" alt="Voss Meme 8" class="gallery-image">
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-container">
+<img src="images/logo.png" alt="Voss Logo" class="footer-logo">
+<p class="disclaimer">
+VOSS ($VOSS) is a community-driven memecoin inspired by the iconic Norwegian water brand and is in no way affiliated with, endorsed by, or associated
+with VOSS Water, its parent company, or any related entities. This token is purely for entertainment and cultural engagement, with no intrinsic value,
+promises of financial returns, or official backing.
+</p>
+</div>
+</footer>
+</body>
+</html>
